@@ -1,0 +1,40 @@
+.dropdown-sort {
+  position: relative;
+  display: inline-block;
+
+  &:hover &__hover-btn {
+    background-color: lighten($sort-btn-color, 10%);
+  }
+
+  &:hover &__list {
+    display: block;
+  }
+
+  &__hover-btn {
+    background-color: $sort-btn-color;
+    padding: 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 1.6rem;
+  }
+
+  &__list {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 16rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  &__list a {
+    color: black;
+    padding: 1.2rem 1.6rem;
+    text-decoration: none;
+    display: block;
+
+    &:hover, &:focus {
+      background-color: #ddd;
+    }
+  }
+}
