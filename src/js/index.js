@@ -1,5 +1,6 @@
-import jQuery from 'jquery';
+import $ from "jquery";
+import moviesList from "./components/movies-list";
 
-jQuery(function() {
-    jQuery('body').css('color', 'red');
+$(async () => {
+    await moviesList.init()
 });

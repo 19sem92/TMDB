@@ -2,6 +2,11 @@
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
+@import "components/movies-list";
+@import "components/movies-card";
+@import "components/modal";
+@import "components/movies-details";
+
 @import "base/animations";
 @import "base/base";
 @import "base/typography";
