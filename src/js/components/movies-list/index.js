@@ -4,6 +4,7 @@ import moviesService from "../../movies-service";
 import modal from "../modal";
 import dropdownSort from "../dropdown-sort";
 
+const INIT_LOAD_PAGES = 3;
 let moviesList = [];
 const moviesWrapper = $(".movies-list");
 
@@ -39,11 +40,36 @@ const sort = filter => {
     drawToDom(generateMoviesList(list));
 };
 
+const infinityScroll = () => {
+    let currentPage = INIT_LOAD_PAGES;
+    let isLoading = false
+
+    $(window).scroll(async () => {
+        const isPageBottom = $(document).height() - $(window).height() === $(window).scrollTop()
+
+        if (!isLoading && isPageBottom) {
+            try {
+                isLoading = true
+                currentPage += 1;
+                const { results } = await moviesService.getPlayNow(currentPage);
+                moviesList.push(...results);
+                drawToDom(generateMoviesList(moviesList));
+            } catch (err) {
+                console.error("infinityScroll error:", err);
+            } finally {
+                isLoading = false
+            }
+        }
+    });
+
+};
+
 const init = async () => {
     try {
-        moviesList = await moviesService.getPlayNowPages(3);
+        moviesList = await moviesService.getPlayNowPages(INIT_LOAD_PAGES);
         drawToDom(generateMoviesList(moviesList));
         dropdownSort(sort);
+        infinityScroll()
     } catch (err) {
         console.error("getPlayNowPages error:", err);
     }
