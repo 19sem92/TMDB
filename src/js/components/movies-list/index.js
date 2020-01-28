@@ -40,13 +40,13 @@ const sort = filter => {
 };
 
 const init = async () => {
-    dropdownSort(sort);
-
-    moviesService.getLocalMovies()
-        .then(data => {
-            moviesList = data
-            drawToDom(generateMoviesList(moviesList))
-        })
+    try {
+        moviesList = await moviesService.getPlayNowPages(3);
+        drawToDom(generateMoviesList(moviesList));
+        dropdownSort(sort);
+    } catch (err) {
+        console.error("getPlayNowPages error:", err);
+    }
 }
 
 export default {
