@@ -1,0 +1,18 @@
+.movie-details {
+
+  &__icon {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    margin: 0 auto 3rem;
+    background-size: cover;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__text {
+    margin-bottom: 1.5rem;
+  }
+}

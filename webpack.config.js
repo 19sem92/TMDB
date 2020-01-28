@@ -1,14 +1,11 @@
-const path = require('path');
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: [
-        './src/js/index.js',
-        './src/sass/main.scss'
-    ],
+    entry: ["./src/js/index.js", "./src/sass/main.scss"],
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js"
     },
     module: {
         rules: [
@@ -16,9 +13,18 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
                 use: {
-                    loader: 'babel-loader',
+                    loader: "babel-loader",
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: [
+                            [
+                                "@babel/preset-env",
+                                {
+                                    targets: {
+                                        node: "current"
+                                    }
+                                }
+                            ]
+                        ]
                     }
                 }
             },
@@ -29,7 +35,7 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader
                     },
                     {
-                        loader: "css-loader",
+                        loader: "css-loader"
                     },
                     {
                         loader: "postcss-loader"
@@ -41,7 +47,7 @@ module.exports = {
                         }
                     }
                 ]
-            },
+            }
         ]
     },
     plugins: [
