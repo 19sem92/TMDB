@@ -7,6 +7,21 @@
     <title>Movie</title>
 </head>
 <body>
+<header class="header">
+    <nav class="nav">
+        <div class="dropdown-sort">
+            <button class="dropdown-sort__hover-btn">Sort</button>
+            <ul class="dropdown-sort__list">
+                <li class="dropdown-sort__item">
+                    <a data-sort="rating-max" class="dropdown-sort__btn" href="#">Max Rating</a>
+                </li>
+                <li class="dropdown-sort__item">
+                    <a data-sort="rating-min" class="dropdown-sort__btn" href="#">Min Rating</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 <div class="wrapper">
     <div class="movies-list"></div>
 </div>
