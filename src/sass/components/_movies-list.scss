@@ -1,0 +1,7 @@
+.movies-list {
+  max-width: 120rem;
+  margin: 2rem auto;
+  display: grid;
+  grid-row-gap: 2.5rem;
+  grid-template-columns: repeat(8, 1fr);
+}

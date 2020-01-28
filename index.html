@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="bundle.css">
     <meta charset="UTF-8">
-    <title>TMDB</title>
+    <title>Movie</title>
 </head>
 <body>
-<h1>Hello</h1>
+<header class="header">
+    <nav class="nav">
+        <div class="dropdown-sort">
+            <button class="dropdown-sort__hover-btn">Sort</button>
+            <ul class="dropdown-sort__list">
+                <li class="dropdown-sort__item">
+                    <a data-sort="rating-max" class="dropdown-sort__btn" href="#">Max Rating</a>
+                </li>
+                <li class="dropdown-sort__item">
+                    <a data-sort="rating-min" class="dropdown-sort__btn" href="#">Min Rating</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="wrapper">
+    <div class="movies-list"></div>
+</div>
+<div id="modal" class="modal">
+    <div class="modal__dialog">
+        <a href="#" class="modal__close"></a>
+        <div class="modal__content"></div>
+    </div>
+</div>
+</div>
 
 <script src="bundle.js"></script>
 </body>
